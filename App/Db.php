@@ -12,10 +12,20 @@ class Db{
 
   public function execute($sql)
   {
-    echo $sql;
     $sth = $this->dbh->prepare($sql);
     $result = $sth->execute();
     return $result;
+  }
+
+  public function execute($sql)
+  {
+    echo $sql;
+    $sth = $this->dbh->prepare($sql);
+    $result = $sth->execute();
+    if(false !== $result){
+      return $sth->fetchAll();
+    }
+    return [];
   }
 
 }
