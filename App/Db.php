@@ -2,30 +2,38 @@
 
 namespace App;
 
-class Db{
-  protected $dbh;
-  function __construct()
-  {
-    $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=controlmyprojects', 'root', '');
-  }
+class Db
+{
+    protected $dbh;
 
-  public function execute($sql)
-  {
-    $sth = $this->dbh->prepare($sql);
-    $result = $sth->execute();
-    return $result;
-  }
-
-  public function query($sql)
-  {
-    echo $sql;
-    $sth = $this->dbh->prepare($sql);
-    $result = $sth->execute();
-    if(false !== $result){
-      return $sth->fetchAll();
+    function __construct()
+    {
+        try {
+            $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=controlmyprojects', 'root', '');
+        }catch (\Exception $e){
+            echo $e->getMessage();
+            print " Check DB. ";
+            exit(1);
+        }
     }
-    return [];
-  }
+
+    public function execute($sql)
+    {
+        $sth = $this->dbh->prepare($sql);
+        $result = $sth->execute();
+        return $result;
+    }
+
+    public function query($sql)
+    {
+        echo $sql;
+        $sth = $this->dbh->prepare($sql);
+        $result = $sth->execute();
+        if (false !== $result) {
+            return $sth->fetchAll();
+        }
+        return [];
+    }
 
 }
 
