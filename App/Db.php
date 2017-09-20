@@ -26,7 +26,6 @@ class Db
 
     public function query($sql, $class)
     {
-        echo $sql;
         $sth = $this->dbh->prepare($sql);
         $result = $sth->execute();
         if (false !== $result) {

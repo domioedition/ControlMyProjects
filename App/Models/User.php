@@ -3,22 +3,23 @@
 namespace App\Models;
 
 
-class User
+use App\Db;
+use App\Model;
+
+class User extends Model
 {
     public $user_id;
     public $name;
     public $email;
     public $rights;
 
+    const TABLE = 'users';
+
     public function __construct()
     {
 
     }
 
-    public function getUser()
-    {
-        return ["id"=>$this->user_id];
-    }
 
 
 }
