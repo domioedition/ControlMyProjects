@@ -23,7 +23,11 @@ require __DIR__ . '/autoload.php';
 <div class="container">
     <div class="row">
         <div class="col-12"><h2>Dashboard</h2>
+            <?php
+            
+                echo "Test";
 
+            ?>
         </div>
     </div>
     <div class="row">
