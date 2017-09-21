@@ -3,10 +3,12 @@
 namespace App;
 
 
-class Model
+abstract class Model
 {
     const TABLE = '';
 
+    // abstract public function getName();
+    
     public static function find_all()
     {
         $db = new Db();
@@ -15,6 +17,6 @@ class Model
 
     public function __destruct()
     {
-//        echo "Destructor is called for class " . __CLASS__ . "<br>";
+      //        echo "Destructor is called for class " . __CLASS__ . "<br>";
     }
 }
