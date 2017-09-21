@@ -3,9 +3,10 @@
 require __DIR__ . '/autoload.php';
 
 
-//$users = \App\Models\User::find_all();
-//var_dump($users);
 
+$users = \App\Models\User::find_all();
+//var_dump($users);
+//unset($users);
 ?>
 <!doctype html>
 <html lang="en">
@@ -39,11 +40,7 @@ require __DIR__ . '/autoload.php';
                 $name = $project->getName();
                 $link = $project->getId();
                 echo '<a href="'.$link.'">'.$name.'</a><br>';
-                
-                
-                
             }
-//            var_dump($projects);
 
             ?>
         </div>
