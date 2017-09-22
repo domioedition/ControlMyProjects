@@ -4,9 +4,11 @@ namespace App;
 
 class Db
 {
+    use Singleton;
+
     protected $dbh;
 
-    function __construct()
+    protected function __construct()
     {
         try {
             $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=controlmyprojects', 'root', '');
@@ -17,10 +19,10 @@ class Db
         }
     }
 
-    public function execute($sql)
+    public function execute($sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql);
-        $result = $sth->execute();
+        $result = $sth->execute($params);
         return $result;
     }
 

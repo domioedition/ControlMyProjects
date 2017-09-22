@@ -8,7 +8,7 @@ use App\Model;
 
 class User extends Model
 {
-    public $user_id;
+    public $id;
     public $name;
     public $email;
     public $rights;

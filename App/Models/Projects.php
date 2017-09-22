@@ -8,7 +8,7 @@ use App\Model;
 
 class Projects extends Model
 {
-    public $project_id;
+    public $id;
     public $project_name;
     public $project_description;
     public $project_active;
@@ -19,12 +19,13 @@ class Projects extends Model
 
     public function __toString()
     {
-        return "asdf";
+        $result = "Running method ".__METHOD__;
+        return $result;
         // TODO: Implement __toString() method.
     }
 
     public function getId(){
-        return $this->project_id;
+        return $this->id;
     }
 
     public function getName(){
