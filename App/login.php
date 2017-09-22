@@ -18,9 +18,13 @@ if (!empty($_POST)) {
         $_SESSION['user_name'] = $login;
         header('Location: ../');
     } else {
-        die("Error. Unknown user or password");
+//        die("Error. Unknown user or password");
     }
 
+}
+
+if(isset($_POST['signup'])){
+    echo "nice";
 }
 
 
@@ -39,6 +43,22 @@ if (!empty($_POST)) {
 <body>
 
 <div class="container">
+    <?php
+
+    if(isset($_GET['action'])){
+        ?>
+        <form action="login.php" method="post">
+            login<input type="text" name="login"><br>
+            pass<input type="password" name="password"><br>
+            re-pass<input type="password2" name="password2"><br>
+            email<input type="email" name="email"><br>
+            <input type="text" name="signup" hidden>
+            <input type="submit" value="Sign up">
+        </form>
+        <?php
+    }
+
+    ?>
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
@@ -48,6 +68,7 @@ if (!empty($_POST)) {
                 <input type="password" name="password">
                 <input type="submit" value="Log In">
             </form>
+            <a href="login.php?action=signup">Sign up</a>
         </div>
         <div class="col-4"></div>
     </div>
