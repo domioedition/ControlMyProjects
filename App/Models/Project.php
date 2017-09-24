@@ -6,7 +6,7 @@ namespace App\Models;
 use App\Db;
 use App\Model;
 
-class Projects extends Model
+class Project extends Model
 {
     public $id;
     public $project_name;

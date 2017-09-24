@@ -3,17 +3,21 @@
 namespace App;
 
 
-abstract class Model
+class Model
 {
     const TABLE = '';
     public $id;
 
-    // abstract public function getName();
-
     public static function find_all()
     {
         $db = Db::instance();
-        return $db->query("SELECT * FROM " . static::TABLE, static::class);
+        return $db->query("SELECT * FROM " . static::TABLE, [], static::class);
+    }
+
+    public static function find_by_id($id)
+    {
+        $db = Db::instance();
+        return $db->query("SELECT * FROM " . static::TABLE.' WHERE id=:id',[':id' => $id], static::class)[0];
     }
 
     public function isNew()
@@ -44,6 +48,6 @@ abstract class Model
 
     public function __destruct()
     {
-        //        echo "Destructor is called for class " . __CLASS__ . "<br>";
+//        echo "Destructor is called for class " . __CLASS__ . "<br>";
     }
 }

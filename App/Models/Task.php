@@ -5,7 +5,7 @@ namespace App\Models;
 
 use App\Model;
 
-class Task extends Model implements IBasicTask
+class Task extends Model
 {
     public $id;
     public $user_id_creator;
@@ -16,23 +16,26 @@ class Task extends Model implements IBasicTask
 
     const TABLE = 'tasks';
 
-    public function createTask()
+    public function __get($name)
     {
+        switch ($name) {
+            case 'user_id_creator':
+                return User::find_by_id($this->user_id_creator);
+                break;
+            default:
+                return null;
+        }
     }
 
-    public function deleteTask()
+    public function __isset($name)
     {
+        switch ($name) {
+            case 'user_id_creator':
+                return true;
+                break;
+            default:
+                return null;
+        }
     }
 
-    public function updateTask()
-    {
-    }
-
-    public function showTask()
-    {
-    }
-
-    public function assignTask()
-    {
-    }
 }

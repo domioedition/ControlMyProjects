@@ -11,24 +11,9 @@ class User extends Model
     public $id;
     public $name;
     public $email;
+    public $password;
     public $rights;
 
     const TABLE = 'users';
-
-    public function __construct()
-    {
-
-    }
-
-    public function addUser()
-    {
-        
-    }
-
-    public function getUser()
-    {
-
-    }
-
 
 }
