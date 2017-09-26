@@ -7,6 +7,7 @@ use App\View;
 class News
 {
     protected $view;
+    protected $article;
 
     public function __construct()
     {
@@ -16,7 +17,7 @@ class News
     public function action($action)
     {
         $methodName = 'action' . $action;
-        $this->beforeAction();
+//        $this->beforeAction();
         return $this->$methodName();
     }
 

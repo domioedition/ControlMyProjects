@@ -10,9 +10,11 @@
 <?php
 
 var_dump($article);
-echo '<p>'.$article->title;
-echo '<p>'.$article->author->name;
 
+if(isset($article)) {
+    echo '<p>' . $article->title;
+    echo '<p>' . $article->author->name;
+}
 
 ?>
 </body>

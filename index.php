@@ -1,9 +1,9 @@
 <?php
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header('Location: App/Login.php');
-    exit;
-}
+//session_start();
+//if (!isset($_SESSION['user_id'])) {
+//    header('Location: App/Login.php');
+//    exit;
+//}
 
 require __DIR__ . '/autoload.php';
 
@@ -37,7 +37,12 @@ print_r($_SERVER['REQUEST_URI']);
 //}
 
 $controller = new \App\Controllers\News();
-$action = $_GET['action'] ?: 'Index';
+
+if(isset($_GET['action'])){
+    $action = $_GET['action'];
+}else{
+    $action = 'Index';
+}
 $controller->action($action);
 
 
