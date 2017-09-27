@@ -1,4 +1,10 @@
 <?php
+
+
+
+
+
+
 ?>
 
 <!doctype html>
@@ -11,7 +17,7 @@
     <title>Add new task</title>
 </head>
 <body>
-<form action="add.php" method="post">
+<form action="App/templates/add.php" method="post">
     <input type="text" name="task_name" placeholder="Task name"><br><br>
     <textarea name="task_description" id="" cols="30" rows="10" placeholder="Task description"></textarea><br>
     <input type="submit" value="Add new task">

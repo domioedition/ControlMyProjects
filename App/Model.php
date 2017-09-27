@@ -11,7 +11,7 @@ class Model
     public static function find_all()
     {
         $db = Db::instance();
-        return $db->query("SELECT * FROM " . static::TABLE, [], static::class);
+        return $db->query("SELECT * FROM " . static::TABLE . ' ORDER BY id DESC' , [], static::class);
     }
 
     public static function find_by_id($id)
@@ -41,13 +41,15 @@ class Model
             $values[':' . $k] = $v;
         }
         $sql = 'INSERT INTO ' . static::TABLE . ' (' . implode(',', $columns) . ') VALUES (' . implode(',', array_keys($values)) . ')';
-//        echo $sql;
         $db = Db::instance();
         $db->execute($sql, $values);
     }
 
-    public function __destruct()
+    public function delete($id)
     {
-//        echo "Destructor is called for class " . __CLASS__ . "<br>";
+        $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id='.$id.'';
+        $db = Db::instance();
+        $result = $db->execute($sql);
+        return $result;
     }
 }

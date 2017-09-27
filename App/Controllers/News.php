@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Controller;
 use App\View;
 
-class News
+class News extends Controller
 {
     protected $view;
     protected $article;
@@ -22,12 +23,12 @@ class News
     }
 
     //Proxy method
-    protected function beforeAction()
+    public function beforeAction()
     {
-        echo 'Proxy method'."<br>";
+        echo 'Proxy method' . "<br>";
     }
 
-    public function actionIndex()
+    protected function actionIndex()
     {
         $this->view->news = \App\Models\News::find_all();
         $this->view->display(__DIR__ . '/../templates/news.php');
@@ -36,10 +37,24 @@ class News
     protected function actionOne()
     {
         $id = (int)$_GET['id'];
-//        $x = \App\Models\News::find_by_id($id);
-//        var_dump($x);
         $this->view->article = \App\Models\News::find_by_id($id);
         $this->view->display(__DIR__ . '/../templates/one.php');
-//        var_dump($this->view->article);
     }
+
+    protected function actionAddForm()
+    {
+        $this->view->display(__DIR__.'/../templates/add_form.php');
+    }
+
+    protected function actionDelete()
+    {
+        $id = (int)$_GET['id'];
+        $article = new \App\Models\News();
+        $result = $article->delete($id);
+        if($result){
+            $this->view->display(__DIR__.'/../templates/success.php');
+        }
+
+    }
+
 }
