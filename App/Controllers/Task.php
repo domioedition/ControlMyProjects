@@ -7,7 +7,7 @@ use App\View;
 
 class Task extends Controller
 {
-    protected $article;
+    protected $task;
 
     public function __construct()
     {
@@ -48,8 +48,8 @@ class Task extends Controller
     protected function actionDelete()
     {
         $id = (int)$_GET['id'];
-        $article = new \App\Models\Task();
-        $result = $article->delete($id);
+        $task = new \App\Models\Task();
+        $result = $task->delete($id);
         if($result){
             $this->view->display(__DIR__.'/../templates/success.php');
         }
