@@ -2,17 +2,24 @@
 include '../../autoload.php';
 
 
-//print_r($_POST);
+print_r($_POST);
 
 
 
-////Add new news
-$news = new \App\Models\News();
-$news->title = $_POST['task_name'];
-$news->lead = $_POST['task_description'];
-$news->author_id = 1;
-$news->insert();
+////Add new task
+$task = new \App\Models\Task();
+
+$task->user_id_creator = 1;
+$task->user_id_assignee = 1;
+$task->task_name = $_POST['task_name'];
+$task->task_description = $_POST['task_description'];
+$task->task_date_creation = time();
+
+$task->insert();
+
+
+
 
 //todo Сделать нормальный редирект.
-header("Location: /controlmyprojects/");
+header("Location: /../../index.php");
 echo "added";

@@ -15,21 +15,40 @@
     <div class="row">
         <div class="col-lg-12">
             <h1>Dashboard</h1>
-            <a href="index.php?action=addForm">Add new task</a>
+            <a href="index.php?action=addForm">
+                <button class="btn btn-success" type="button">Add new task</button>
+            </a>
         </div>
     </div>
+    <hr>
     <?php
-    foreach ($news as $article) {
+
+    if (empty($tasks)) {
+        echo "0 tasks. Please create new";
+    }
+
+    foreach ($tasks as $task) {
+
+//        var_dump($task);
+        $task_id = $task->id;
+        $user_id_creator = $task->user_id_creator;
+        $user_id_assignee = $task->user_id_assignee;
+        $task_name = $task->task_name;
+        $task_description = $task->task_description;
+        $task_date_creation = date('d/m/Y H:i', $task->task_date_creation);
+
+
         echo '<div class="row">
         <div class="col">';
 
-        echo "id: " . $article->id . "<br>";
-        echo '<a href=index.php?action=delete&id=' . $article->id . '>Delete</a>';
-        echo '<h4>' . $article->title . '</h4>';
-//        echo "<p><b>Content:</b> " . $article->lead .  "</p>";
-        echo '<a href=index.php?action=One&id=' . $article->id . '>  more.. </a>';
-        if (!empty($article->author)) {
-            echo "Created by: " . $article->author->name;
+        echo "id: " . $task_id . "<br>";
+        echo '<a href=index.php?action=delete&id=' . $task_id . '>Delete</a>';
+        echo '<h4>' . $task_name . '</h4>';
+        echo "<p>$task_description</p>";
+        echo "<p>$task_date_creation</p>";
+//        echo '<a href=index.php?action=One&id=' . $task->id . '>  more.. </a>';
+        if (!empty($task->user)) {
+            echo "Created by: " . $task->user->name;
         } else {
             echo "Created by: NULL";
         }

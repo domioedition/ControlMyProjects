@@ -5,14 +5,13 @@ namespace App\Controllers;
 use App\Controller;
 use App\View;
 
-class News extends Controller
+class Task extends Controller
 {
-    protected $view;
     protected $article;
 
     public function __construct()
     {
-        $this->view = new View();
+        parent::__construct();
     }
 
     public function action($action)
@@ -30,14 +29,14 @@ class News extends Controller
 
     protected function actionIndex()
     {
-        $this->view->news = \App\Models\News::find_all();
-        $this->view->display(__DIR__ . '/../templates/news.php');
+        $this->view->tasks = \App\Models\Task::find_all();
+        $this->view->display(__DIR__ . '/../templates/task.php');
     }
 
     protected function actionOne()
     {
         $id = (int)$_GET['id'];
-        $this->view->article = \App\Models\News::find_by_id($id);
+        $this->view->article = \App\Models\Task::find_by_id($id);
         $this->view->display(__DIR__ . '/../templates/one.php');
     }
 
@@ -49,7 +48,7 @@ class News extends Controller
     protected function actionDelete()
     {
         $id = (int)$_GET['id'];
-        $article = new \App\Models\News();
+        $article = new \App\Models\Task();
         $result = $article->delete($id);
         if($result){
             $this->view->display(__DIR__.'/../templates/success.php');
