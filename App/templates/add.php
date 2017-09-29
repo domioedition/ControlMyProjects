@@ -2,7 +2,7 @@
 include '../../autoload.php';
 
 
-print_r($_POST);
+//print_r($_POST);
 
 
 
@@ -22,4 +22,3 @@ $task->insert();
 
 //todo Сделать нормальный редирект.
 header("Location: /../../index.php");
-echo "added";

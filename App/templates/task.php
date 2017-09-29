@@ -48,10 +48,11 @@
         echo "<p>$task_date_creation</p>";
 //        echo '<a href=index.php?action=One&id=' . $task->id . '>  more.. </a>';
         if (!empty($task->user)) {
-            echo "Created by: " . $task->user->name;
+            $created = "Created by: " . $task->user->name . " Date: " . $task_date_creation;
         } else {
-            echo "Created by: NULL";
+            echo $created = "Created by: NULL". " Date: " . $task_date_creation;
         }
+        echo $created;
         echo '</div>
           </div>';
         echo '<hr>';
