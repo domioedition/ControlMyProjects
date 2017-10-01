@@ -1,20 +1,25 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: Марсиус
+ * Date: 01.10.2017
+ * Time: 18:26
+ */
 
 namespace App\Models;
 
+
 use App\Model;
 
-class Task extends Model
+class ModelComment extends Model
 {
-    const TABLE = 'tasks';
+    const TABLE = 'comments';
 
-    public $user_id_creator;
-    public $user_id_assignee;
-    public $task_name;
-    public $task_description;
-    public $task_date_creation;
-    public $task_status;
+    public $project_id;
+    public $task_id;
+    public $user_id;
+    public $content;
+    public $date;
 
     public function __get($k)
     {
@@ -35,5 +40,6 @@ class Task extends Model
             default: return false;
         }
     }
+
 
 }

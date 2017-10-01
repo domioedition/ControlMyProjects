@@ -14,6 +14,7 @@ $task->user_id_assignee = 1;
 $task->task_name = $_POST['task_name'];
 $task->task_description = $_POST['task_description'];
 $task->task_date_creation = time();
+$task->task_status = 0;
 
 $task->insert();
 

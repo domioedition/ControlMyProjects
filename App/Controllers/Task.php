@@ -30,7 +30,7 @@ class Task extends Controller
     protected function actionIndex()
     {
         $this->view->tasks = \App\Models\Task::find_all();
-        $this->view->display(__DIR__ . '/../templates/task.php');
+        $this->view->display(__DIR__ . '/../templates/dashboard.php');
     }
 
     protected function actionOne()
