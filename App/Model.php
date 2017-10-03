@@ -17,7 +17,9 @@ class Model
     public static function find_by_id($id)
     {
         $db = Db::instance();
-        return $db->query("SELECT * FROM " . static::TABLE.' WHERE id=:id',[':id' => $id], static::class)[0];
+        $sql = "SELECT * FROM " . static::TABLE.' WHERE id=:id';
+        $result = $db->query($sql, [':id' => $id], static::class)[0];
+        return $result;
     }
 
     public function isNew()

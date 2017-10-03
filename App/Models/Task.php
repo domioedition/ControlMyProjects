@@ -4,6 +4,7 @@
 namespace App\Models;
 
 use App\Model;
+use App\Db;
 
 class Task extends Model
 {
@@ -22,7 +23,8 @@ class Task extends Model
             case 'user':
                 return ModelUser::find_by_id($this->user_id_creator);
                 break;
-            default: return null;
+            default:
+                return null;
         }
     }
 
@@ -32,8 +34,18 @@ class Task extends Model
             case 'user':
                 return !empty($this->user_id_creator);
                 break;
-            default: return false;
+            default:
+                return false;
         }
+    }
+
+
+    public static function get_all_tasks_for_project_id($id)
+    {
+        $db = Db::instance();
+        $sql = $sql = "SELECT * FROM " . static::TABLE.' WHERE id=:id';
+        $result = $db->query($sql, [':id' => $id], static::class)[0];
+        return $result;
     }
 
 }
