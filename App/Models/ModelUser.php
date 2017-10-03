@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Models;
 
 
@@ -10,6 +11,7 @@ class ModelUser extends Model
 {
     const TABLE = 'users';
 
+
     public $id;
     public $name;
     public $email;
@@ -19,8 +21,8 @@ class ModelUser extends Model
     public function findByEmail($e)
     {
         $db = Db::instance();
-//        $sql = "SELECT * FROM " . static::TABLE .' WHERE email='.$e;
-//        echo $sql;
         return $db->query("SELECT * FROM " . static::TABLE.' WHERE email=:email',[':email' => $e], static::class)[0];
     }
+
+
 }
