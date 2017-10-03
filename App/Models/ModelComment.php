@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Марсиус
- * Date: 01.10.2017
- * Time: 18:26
- */
+
 
 namespace App\Models;
 
@@ -25,7 +20,7 @@ class ModelComment extends Model
     {
         switch ($k) {
             case 'user':
-                return User::find_by_id($this->user_id_creator);
+                return ModelUser::find_by_id($this->user_id);
                 break;
             default: return null;
         }

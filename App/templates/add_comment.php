@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../../autoload.php';
 //adding new comment
 
@@ -10,7 +11,7 @@ include '../../autoload.php';
 
     $addComment->project_id = $_POST['project_id'];
     $addComment->task_id = $_POST['task_id'];
-    $addComment->user_id = 1;
+    $addComment->user_id = $_SESSION['user_id'];
     $addComment->content = $_POST['comment'];
     $addComment->date = time();
 //    var_dump($addComment);

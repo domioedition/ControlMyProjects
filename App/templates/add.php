@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../../autoload.php';
 
 
@@ -9,7 +10,7 @@ include '../../autoload.php';
 ////Add new task
 $task = new \App\Models\Task();
 
-$task->user_id_creator = 1;
+$task->user_id_creator = $_SESSION['user_id'];
 $task->user_id_assignee = 1;
 $task->task_name = $_POST['task_name'];
 $task->task_description = $_POST['task_description'];

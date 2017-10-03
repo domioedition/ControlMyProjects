@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Марсиус
- * Date: 01.10.2017
- * Time: 18:16
- */
+
 
 namespace App\Controllers;
 

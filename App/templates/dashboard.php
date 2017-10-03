@@ -257,7 +257,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="App/templates/User/login.php?logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -294,6 +294,17 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Dashboard</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">Welcome <?php
+                    $userName = \App\Models\ModelUser::find_by_id($_SESSION['user_id']);
+                    echo $userName->name;
+                    ?>
+                </h3>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -336,7 +347,6 @@
                                     $task_description = $task->task_description;
                                     $task_date_creation = date('d/m/Y H:i', $task->task_date_creation);
                                     $task_status = $task->task_status;
-
                                     if (!empty($task->user)) {
                                         $task_creator = $task->user->name;
                                     } else {
@@ -350,25 +360,6 @@
                                             <td>$task_creator</td>
                                             <td>$task_date_creation</td>
                                         </tr>";
-                                    /*                                    echo '<div class="row">
-                                            <div class="col">';
-
-                                                                        echo "id: " . $task_id . "<br>";
-                                                                        echo "Status: " . $task_status . "<br>";
-                                                                        echo '<a href=index.php?action=delete&id=' . $task_id . '>Delete</a>';
-                                                                        echo '<h4>' . $task_name . '</h4>';
-                                                                        echo "<p>$task_description</p>";
-                                    //        echo "<p>$task_date_creation</p>";
-                                    //        echo '<a href=index.php?action=One&id=' . $task->id . '>  more.. </a>';
-                                                                        if (!empty($task->user)) {
-                                                                            $created = "Created by: " . $task->user->name . " Date: " . $task_date_creation;
-                                                                        } else {
-                                                                            echo $created = "Created by: NULL" . " Date: " . $task_date_creation;
-                                                                        }
-                                                                        echo $created;
-                                                                        echo '</div>
-                                              </div>';
-                                                                        echo '<hr>';*/
                                 }
                                 ?>
 
@@ -389,63 +380,69 @@
                 $task_id = (empty($_GET['id'])) ? null : $_GET['id'];
 
 
-
                 if ($task_id) {
 
 
                     ?>
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <button type="button" class="btn btn-primary">Unassigned</button>
-                        <button type="button" class="btn btn-primary">Due date</button>
-                    </div>
-                    <div class="panel-body">
-
-
-                        <?php
-                        $current_task = $task->find_by_id($task_id);
-//                                                    var_dump($task);
-                        //                            var_dump($x);
-                        echo '<h3 class="page-header">' . $current_task->task_name . '</h3>';
-                        echo '<p>' . $current_task->task_description . '</p>';
-                        echo '<p><small>Date creation: ' . date("d/m/Y H:i", $current_task->task_date_creation) . '</small></p>';
-                        echo '<p><small>Date update: ' . date("d/m/Y H:i", $current_task->task_date_creation) . '</small></p>';
-                        echo '<p>Task status: ' . $current_task->task_status . '</p>';
-                        echo '<a href=index.php?action=delete&id=' . $task_id . '><button type="button" class="btn btn-danger" onclick="return confirm(\'Вы действительно хотите удалить эту запись?\');">Delete</button></a>';
-                        echo '<hr>';
-                        echo '<h3>Comments</h3>';
-
-                        $project_id = 1;
-                        $comments = new \App\Controllers\ControllerComment();
-                        $all_comments = $comments->showAllComments($project_id, $task_id);
-                        if(empty($all_comments)){
-                            echo "0 comments";
-                        }else {
-                            foreach ($all_comments as $c) {
-                                echo '<p>' . nl2br($c->content) . '</p>';
-                                echo '<hr>';
-                            }
-                        }
-
-
-                        ?>
-                        <form role="form" action="app/templates/add_comment.php" method="post">
-                        <div class="form-group">
-                            <label>Comment</label>
-                            <textarea class="form-control" rows="3" name="comment"></textarea>
-                            <input type="text" name="project_id" value="<?php echo $project_id; ?>" hidden>
-                            <input type="text" name="task_id" value="<?php echo $task_id; ?>" hidden>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <button type="button" class="btn btn-primary">Unassigned</button>
+                            <button type="button" class="btn btn-primary">Due date</button>
                         </div>
-                            <button type="submit" class="btn btn-primary">Add comment</button>
-                        </form>
+                        <div class="panel-body">
 
+
+                            <?php
+                            $current_task = $task->find_by_id($task_id);
+                            //                        var_dump($current_task);
+                            echo '<h3 class="page-header">' . $current_task->task_name . '</h3>';
+                            echo '<p>' . $current_task->task_description . '</p>';
+
+                            echo 'Task creator: ' . $current_task->user->name . '<br>';
+
+                            echo '<p><small>Date creation: ' . date("d/m/Y H:i", $current_task->task_date_creation) . '</small></p>';
+                            echo '<p><small>Date update: ' . date("d/m/Y H:i", $current_task->task_date_creation) . '</small></p>';
+                            echo '<p>Task status: ' . $current_task->task_status . '</p>';
+                            echo '<a href=index.php?action=delete&id=' . $task_id . '><button type="button" class="btn btn-danger" onclick="return confirm(\'Вы действительно хотите удалить эту запись?\');">Delete</button></a>';
+                            echo '<hr>';
+                            echo '<h3>Comments</h3>';
+
+
+                            // TODO chqnge project id from default
+                            $project_id = 1;
+                            $comments = new \App\Controllers\ControllerComment();
+                            $all_comments = $comments->showAllComments($project_id, $task_id);
+                            if (empty($all_comments)) {
+                                echo "0 comments";
+                            } else {
+                                foreach ($all_comments as $comment) {
+                                    $date = date('d-m-Y H:i', $comment->date);
+                                    echo '<p class="text-info"><code>' . $comment->user->name . '</code> added a comment - '.$date.'</p>';
+                                    echo '<p>' . nl2br($comment->content) . '</p>';
+                                    echo '<p class="text-right"><a href="#">Update</a> | <a href="#">Delete</a></p>';
+                                    echo '<hr>';
+                                }
+                            }
+
+
+                            ?>
+                            <form role="form" action="app/templates/add_comment.php" method="post">
+                                <div class="form-group">
+                                    <label>Comment</label>
+                                    <textarea class="form-control" rows="3" name="comment"></textarea>
+                                    <input type="text" name="project_id" value="<?php echo $project_id; ?>" hidden>
+                                    <input type="text" name="task_id" value="<?php echo $task_id; ?>" hidden>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add comment</button>
+                            </form>
+
+                        </div>
+                        <div class="panel-footer">
+                            Panel Footer
+                        </div>
                     </div>
-                    <div class="panel-footer">
-                        Panel Footer
-                    </div>
-                </div>
-                <?php
-                }else {
+                    <?php
+                } else {
                     echo '<h4>Please select task from right side</h4>';
                 }
                 ?>

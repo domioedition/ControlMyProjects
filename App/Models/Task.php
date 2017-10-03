@@ -20,7 +20,7 @@ class Task extends Model
     {
         switch ($k) {
             case 'user':
-                return User::find_by_id($this->user_id_creator);
+                return ModelUser::find_by_id($this->user_id_creator);
                 break;
             default: return null;
         }
