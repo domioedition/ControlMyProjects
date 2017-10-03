@@ -21,6 +21,12 @@ if (isset($_GET['logout']))
 try {
     $email = filter_input(INPUT_POST, 'email');
     $password = filter_input(INPUT_POST, 'password');
+
+    // TODO костыль, нужно испраить
+    if(!$email){
+        header("Location: /index.php");
+
+    }
     $user = new \App\Controllers\ControllerUser();
     $foundUser = $user->findUserByEmail($email);
 
