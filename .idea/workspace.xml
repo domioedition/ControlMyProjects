@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c3acd83-ed96-473d-8b93-9c1b740a5dec" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/App/templates/register.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/App/templates/register_form.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/App/Models/User.php" afterPath="$PROJECT_DIR$/App/Models/ModelUser.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/App/templates/pages/login.html" afterPath="$PROJECT_DIR$/App/templates/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Controller.php" afterPath="$PROJECT_DIR$/App/Controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Controllers/ControllerComment.php" afterPath="$PROJECT_DIR$/App/Controllers/ControllerComment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Db.php" afterPath="$PROJECT_DIR$/App/Db.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Models/ModelComment.php" afterPath="$PROJECT_DIR$/App/Models/ModelComment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Models/Task.php" afterPath="$PROJECT_DIR$/App/Models/Task.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Singleton.php" afterPath="$PROJECT_DIR$/App/Singleton.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/View.php" afterPath="$PROJECT_DIR$/App/View.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/add.php" afterPath="$PROJECT_DIR$/App/templates/add.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/add_comment.php" afterPath="$PROJECT_DIR$/App/templates/add_comment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/dashboard.php" afterPath="$PROJECT_DIR$/App/templates/dashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/blank.html" afterPath="$PROJECT_DIR$/App/templates/pages/blank.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/buttons.html" afterPath="$PROJECT_DIR$/App/templates/pages/buttons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/flot.html" afterPath="$PROJECT_DIR$/App/templates/pages/flot.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/forms.html" afterPath="$PROJECT_DIR$/App/templates/pages/forms.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/grid.html" afterPath="$PROJECT_DIR$/App/templates/pages/grid.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/icons.html" afterPath="$PROJECT_DIR$/App/templates/pages/icons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/index.html" afterPath="$PROJECT_DIR$/App/templates/pages/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/morris.html" afterPath="$PROJECT_DIR$/App/templates/pages/morris.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/notifications.html" afterPath="$PROJECT_DIR$/App/templates/pages/notifications.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/panels-wells.html" afterPath="$PROJECT_DIR$/App/templates/pages/panels-wells.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/tables.html" afterPath="$PROJECT_DIR$/App/templates/pages/tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/templates/pages/typography.html" afterPath="$PROJECT_DIR$/App/templates/pages/typography.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ControlMyProjects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,11 +56,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Singleton.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Singleton.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Singleton.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -156,7 +139,6 @@
         <option value="$PROJECT_DIR$/App/templates/User/login.php" />
         <option value="$PROJECT_DIR$/App/templates/add_comment.php" />
         <option value="$PROJECT_DIR$/App/templates/dashboard.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/App/Models/ModelComment.php" />
         <option value="$PROJECT_DIR$/App/Controllers/ControllerComment.php" />
@@ -172,6 +154,7 @@
         <option value="$PROJECT_DIR$/App/Controllers/Task.php" />
         <option value="$PROJECT_DIR$/App/Db.php" />
         <option value="$PROJECT_DIR$/App/Singleton.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -418,12 +401,12 @@
       <workItem from="1506438147673" duration="10083000" />
       <workItem from="1506510934312" duration="18432000" />
       <workItem from="1506695609211" duration="498000" />
-      <workItem from="1507015191195" duration="16723000" />
+      <workItem from="1507015191195" duration="16906000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89526000" />
+    <option name="totallyTimeSpent" value="89709000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -435,7 +418,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19402985" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -579,14 +562,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="12" selection-start-line="0" selection-start-column="4" selection-end-line="1" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -861,6 +836,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
