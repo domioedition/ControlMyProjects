@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Окт 01 2017 г., 18:25
--- Версия сервера: 5.7.19
--- Версия PHP: 5.6.31
+-- Host: 127.0.0.1
+-- Generation Time: Oct 04, 2017 at 11:59 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,51 +19,26 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `controlmyprojects`
+-- Database: `controlmyprojects`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `authors`
+-- Table structure for table `comments`
 --
 
-DROP TABLE IF EXISTS `authors`;
-CREATE TABLE IF NOT EXISTS `authors` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `active` int(11) NOT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Дамп данных таблицы `authors`
---
-
-INSERT INTO `authors` (`id`, `name`, `email`, `active`) VALUES
-(1, 'john', 'john@company.com', 1),
-(2, 'mikle', 'mikle@gma.ocm', 1);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `comments`
---
-
-DROP TABLE IF EXISTS `comments`;
-CREATE TABLE IF NOT EXISTS `comments` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `comments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `project_id` int(11) NOT NULL,
   `task_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `content` text NOT NULL,
-  `date` int(11) NOT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `date` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `comments`
+-- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `project_id`, `task_id`, `user_id`, `content`, `date`) VALUES
@@ -72,39 +47,39 @@ INSERT INTO `comments` (`id`, `project_id`, `task_id`, `user_id`, `content`, `da
 (3, 1, 27, 1, 'asdfasdf', 1506882195),
 (4, 1, 27, 1, 'asdfasdf', 1506882233),
 (5, 1, 27, 1, 'asdfasdf', 1506882240),
-(6, 1, 27, 1, 'something new', 1506882276);
+(6, 1, 27, 1, 'something new', 1506882276),
+(7, 1, 27, 1, 'fff', 1507015466),
+(8, 1, 28, 1, 'qweoqew[pqwerqwer', 1507016034),
+(9, 1, 28, 1, 'f', 1507016069),
+(10, 1, 28, 1, 'asdf', 1507016089),
+(11, 1, 28, 1, 'f', 1507016110),
+(12, 1, 28, 1, 'u', 1507016129),
+(13, 1, 29, 1, 'ff', 1507016418),
+(14, 1, 29, 1, 'Ð¹ÑƒÑ†ÐºÐ¹ÑƒÑ†Ðº', 1507018296),
+(15, 1, 30, 1, 'qwerty', 1507023588),
+(16, 1, 32, 1, 'qoiwerpoiqwporiqwr', 1507024167),
+(17, 1, 32, 1, 'ASDFASDFEASDF', 1507024173),
+(18, 1, 33, 1, 'Donec hendrerit dui a sapien viverra, ac ultrices velit blandit. Integer in vestibulum mi, aliquam dapibus nunc. Maecenas viverra metus sed tortor dignissim ultricies. Etiam lobortis non velit id dignissim. Pellentesque facilisis ipsum nisi, non dignissim dui accumsan quis. Suspendisse lacinia quis felis vel scelerisque. Donec in nisi velit. Ut imperdiet lectus eget dignissim venenatis.', 1507024604),
+(19, 1, 33, 1, 'Sed pellentesque, velit vel congue auctor, eros lorem efficitur diam, in sodales nulla diam a mauris. Maecenas consequat egestas convallis. Maecenas sit amet augue vel eros accumsan mollis. Curabitur et est vulputate, viverra risus eu, tincidunt tortor. Curabitur posuere, eros vel efficitur dictum, lorem justo venenatis est, sit amet viverra lacus arcu eget neque. Donec eu elementum ipsum. Suspendisse et odio at mi dapibus lobortis eu ac metus. Curabitur at urna eu urna facilisis pulvinar. Maecenas tincidunt est id blandit accumsan.', 1507024613),
+(20, 1, 33, 1, 'Praesent efficitur elit non luctus mattis. Integer venenatis magna lacus, at sodales ligula ultricies in. Aenean leo nibh, tempus a ante quis, maximus mattis lacus. Aliquam accumsan sagittis libero. Quisque ac leo eu nisi semper interdum. Aliquam erat volutpat. Nulla in magna eu ligula tempor placerat blandit eget enim. Maecenas laoreet venenatis velit finibus pulvinar. Sed urna mi, fringilla in auctor nec, dignissim nec metus.', 1507024621),
+(21, 1, 33, 1, 'Phasellus elit est, porttitor vitae pretium eget, finibus tempor est. Sed varius blandit tempus. Suspendisse tristique nulla imperdiet gravida luctus. Vestibulum vel magna sit amet urna maximus accumsan. Maecenas vestibulum pretium eros vel bibendum. Proin ac ornare massa. Praesent consectetur dolor sed eleifend porttitor. Nam ultrices lacus a quam ornare ultrices. Integer ultricies dictum tristique. Donec venenatis turpis et hendrerit malesuada. Nunc iaculis nisl diam, eget convallis metus dapibus eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut dui sem, fermentum sit amet tristique non, auctor a tellus. Morbi mauris eros, lacinia a convallis id, auctor at ante. Mauris pellentesque pulvinar ante, at tempus nunc faucibus non.', 1507024632),
+(22, 1, 33, 1, 'Phasellus tincidunt, justo a placerat pulvinar, orci nisl cursus quam, eget convallis nibh sem vehicula neque. Morbi suscipit eu tellus vitae rhoncus. Donec non sapien mollis, sollicitudin libero vel, elementum lorem. Sed tincidunt pretium egestas. Nullam convallis purus vitae fermentum sodales. Vestibulum sed magna turpis. Phasellus eu augue nulla. Nam facilisis velit eget risus efficitur cursus. Quisque non arcu nec lacus bibendum iaculis. Aenean pulvinar sed ligula eu ultricies. Aliquam quis bibendum augue, id facilisis augue. Fusce laoreet leo vitae ipsum consequat, id auctor est efficitur. Nunc non ligula dictum, aliquam elit sodales, mattis lacus. Nunc sollicitudin tincidunt bibendum. Pellentesque feugiat, enim eget tempor porttitor, justo ante sodales turpis, et suscipit orci diam sit amet lectus.', 1507025344),
+(23, 1, 33, 1, 'Praesent lacus purus, iaculis non rhoncus et, bibendum et eros. Integer sit amet quam vel felis posuere imperdiet. Cras sagittis tempor dolor. Sed sed lacinia justo. Nulla vestibulum, ex et tempus ornare, urna ligula malesuada tortor, sed pretium orci quam et odio. Nulla et odio sed diam mollis laoreet. Vivamus non ligula volutpat, sollicitudin eros porttitor, maximus sapien. Vivamus sit amet mi dolor. Donec a faucibus ex. Aliquam consequat libero sit amet lacus imperdiet, vitae elementum purus aliquet. ', 1507025359),
+(24, 1, 33, 1, 'Sed pellentesque, velit vel congue auctor, eros lorem efficitur diam, in sodales nulla diam a mauris. Maecenas consequat egestas convallis. Maecenas sit amet augue vel eros accumsan mollis. Curabitur et est vulputate, viverra risus eu, tincidunt tortor. Curabitur posuere, eros vel efficitur dictum, lorem justo venenatis est, sit amet viverra lacus arcu eget neque. Donec eu elementum ipsum. Suspendisse et odio at mi dapibus lobortis eu ac metus. Curabitur at urna eu urna facilisis pulvinar. Maecenas tincidunt est id blandit accumsan.', 1507025380),
+(25, 1, 33, 27, 'Sed pellentesque, velit vel congue auctor, eros lorem efficitur diam, in sodales nulla diam a mauris. Maecenas consequat egestas convallis. Maecenas sit amet augue vel eros accumsan mollis. Curabitur et est vulputate, viverra risus eu, tincidunt tortor. ', 1507026864),
+(26, 1, 33, 27, 'Sed pellentesque, velit vel congue auctor, eros lorem efficitur diam, in sodales nulla diam a mauris. Maecenas consequat egestas convallis. Maecenas sit amet augue vel eros accumsan mollis. Curabitur et est vulputate, viverra risus eu, tincidunt tortor. ', 1507026876),
+(27, 1, 33, 2, 'Proin ac ornare massa. Praesent consectetur dolor sed eleifend porttitor. Nam ultrices lacus a quam ornare ultrices. Integer ultricies dictum tristique. Donec venenatis turpis et hendrerit malesuada. Nunc iaculis nisl diam, eget convallis metus dapibus eu.', 1507026902),
+(28, 1, 33, 2, 'Nulla in magna eu ligula tempor placerat blandit eget enim. Maecenas laoreet venenatis velit finibus pulvinar. Sed urna mi, fringilla in auctor nec, dignissim nec metus.', 1507026912),
+(29, 1, 32, 2, 'fff', 1507028122),
+(30, 1, 33, 1, 'test', 1507030843);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `news`
+-- Table structure for table `projects`
 --
 
-DROP TABLE IF EXISTS `news`;
-CREATE TABLE IF NOT EXISTS `news` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `lead` text NOT NULL,
-  `author_id` int(11) NOT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Дамп данных таблицы `news`
---
-
-INSERT INTO `news` (`id`, `title`, `lead`, `author_id`) VALUES
-(1, 'Create something new', 'Fill data', 1),
-(2, 'Invistiage', 'Feeling stuck? Need something more? You can hire a designer to help you with your project or to create a custom build of any theme!', 2);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `projects`
---
-
-DROP TABLE IF EXISTS `projects`;
-CREATE TABLE IF NOT EXISTS `projects` (
+CREATE TABLE `projects` (
   `id` int(11) NOT NULL,
   `project_user_id_creator` int(11) NOT NULL,
   `project_name` varchar(255) NOT NULL,
@@ -112,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Дамп данных таблицы `projects`
+-- Dumping data for table `projects`
 --
 
 INSERT INTO `projects` (`id`, `project_user_id_creator`, `project_name`, `project_description`) VALUES
@@ -122,23 +97,21 @@ INSERT INTO `projects` (`id`, `project_user_id_creator`, `project_name`, `projec
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `tasks`
+-- Table structure for table `tasks`
 --
 
-DROP TABLE IF EXISTS `tasks`;
-CREATE TABLE IF NOT EXISTS `tasks` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tasks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `user_id_creator` int(11) NOT NULL,
   `user_id_assignee` int(11) NOT NULL,
   `task_name` varchar(255) NOT NULL,
   `task_description` text NOT NULL,
   `task_date_creation` int(11) NOT NULL,
-  `task_status` int(11) NOT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+  `task_status` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Дамп данных таблицы `tasks`
+-- Dumping data for table `tasks`
 --
 
 INSERT INTO `tasks` (`id`, `user_id_creator`, `user_id_assignee`, `task_name`, `task_description`, `task_date_creation`, `task_status`) VALUES
@@ -163,37 +136,74 @@ INSERT INTO `tasks` (`id`, `user_id_creator`, `user_id_assignee`, `task_name`, `
 (19, 1, 1, 'Vivamus dignissim nisl at sodales pharetra.', 'Vivamus dignissim nisl at sodales pharetra. Nam sed feugiat augue. Ut mattis orci non felis condimentum, non maximus nunc dictum. Fusce sodales mauris vitae lacus consectetur porta. Nulla vitae placerat ex, tempus hendrerit tortor. Nunc dapibus pellentesque felis et pretium. Aenean accumsan tempus eleifend. Curabitur augue orci, iaculis et fringilla id, condimentum id turpis. Curabitur nibh dui, auctor id urna quis, luctus pellentesque felis. Curabitur odio eros, mollis et lacinia vitae, elementum nec libero. Praesent sed neque lorem. Morbi laoreet aliquet odio, a lobortis orci vulputate sed. Morbi malesuada nibh at mollis pulvinar. Morbi a purus dolor. Cras mauris eros, ullamcorper fringilla hendrerit ut, egestas ut neque.', 1506869102, 0),
 (20, 1, 1, 'Fusce interdum id metus sit amet accumsan. ', 'Fusce interdum id metus sit amet accumsan. Duis sagittis, lectus at dictum sollicitudin, tortor purus gravida ante, quis cursus mauris ipsum ut magna. Vivamus sed nisl sit amet mi rhoncus feugiat sed et magna. Aliquam risus dolor, dapibus eget tristique tempor, egestas sed nisi. Nunc aliquet orci eget libero ultricies, at consectetur augue cursus. Proin in diam blandit augue sodales dictum id vitae nisi. Donec fermentum felis urna, at sagittis justo molestie id. Fusce at lectus eu lacus dictum elementum volutpat ut risus. Nam ac ligula ac arcu eleifend tincidunt at quis massa. Proin volutpat metus at magna luctus, id venenatis turpis pharetra. Curabitur lobortis ornare dolor, id commodo elit vestibulum vitae. Curabitur ut est risus. Vivamus molestie aliquam arcu. In aliquet tortor sit amet lectus rutrum, quis commodo ante bibendum.', 1506869112, 0),
 (21, 1, 1, 'Curabitur hendrerit enim vulputate,', 'Curabitur hendrerit enim vulputate, feugiat elit a, porta elit. Aliquam ac quam vitae nibh pharetra tincidunt a quis turpis. Quisque eget orci quis nisi pretium rutrum eget eget sapien. Integer luctus justo odio, commodo convallis justo rhoncus quis. Maecenas consequat nulla a sollicitudin varius. Aenean pellentesque facilisis tellus et auctor. Curabitur imperdiet porta tortor nec suscipit. Pellentesque et orci consectetur, euismod augue at, scelerisque diam.', 1506869122, 0),
-(27, 1, 1, 'qqq', 'qqq', 1506882082, 0),
 (23, 1, 1, 'Nulla consectetur, ligula vitae euismod sodales, purus ', 'Nulla consectetur, ligula vitae euismod sodales, purus lorem suscipit mi, quis euismod ex turpis vitae purus. Aenean pharetra commodo mauris a cursus. Integer mattis vulputate neque eu ullamcorper. Aliquam aliquam fringilla tincidunt. Nullam malesuada ex sit amet arcu commodo consequat. Nulla ac mi efficitur, dapibus metus vel, luctus est. Phasellus sit amet bibendum dui. Aenean consectetur enim non ipsum imperdiet, at hendrerit quam luctus. Phasellus posuere tellus a ipsum tempor blandit. Sed rutrum velit sed magna pellentesque porttitor sit amet ac sapien. Vestibulum urna orci, fermentum a lectus eget, ultricies tincidunt purus. Cras at pharetra ante. Praesent interdum augue posuere arcu lacinia, vitae pharetra orci fringilla. Donec luctus volutpat risus, ut cursus lorem tempus nec. Nam tempus, lacus ut blandit molestie, arcu lectus condimentum massa, quis pellentesque diam purus in ligula.', 1506869142, 0),
-(24, 1, 1, 'Donec pellentesque nunc non auctor interdum. ', 'Donec pellentesque nunc non auctor interdum. Curabitur viverra tellus nec facilisis ullamcorper. Sed elementum laoreet diam, malesuada tincidunt quam elementum sed. Vivamus semper non velit sed pharetra. Integer ut mattis elit. Vestibulum ut posuere erat. Morbi enim nulla, fringilla nec feugiat volutpat, aliquet quis tellus. Quisque porttitor eget ante ac pretium.\r\n\r\nCras quam justo, ultricies eu diam eget, molestie volutpat tortor. Suspendisse sit amet magna nunc. Sed risus sem, lobortis sed lorem ut, convallis fermentum lacus. In tempus urna diam, vel iaculis lacus elementum feugiat. Integer rhoncus, nibh vel volutpat tincidunt, ante turpis gravida dolor, a accumsan est metus eget tortor. Sed in magna eget lorem vestibulum viverra vel ac metus. Donec egestas sodales enim at tincidunt. Proin sed porttitor neque. Mauris id finibus leo, a accumsan dolor.', 1506869150, 0);
+(24, 1, 1, 'Donec pellentesque nunc non auctor interdum. ', 'Donec pellentesque nunc non auctor interdum. Curabitur viverra tellus nec facilisis ullamcorper. Sed elementum laoreet diam, malesuada tincidunt quam elementum sed. Vivamus semper non velit sed pharetra. Integer ut mattis elit. Vestibulum ut posuere erat. Morbi enim nulla, fringilla nec feugiat volutpat, aliquet quis tellus. Quisque porttitor eget ante ac pretium.\r\n\r\nCras quam justo, ultricies eu diam eget, molestie volutpat tortor. Suspendisse sit amet magna nunc. Sed risus sem, lobortis sed lorem ut, convallis fermentum lacus. In tempus urna diam, vel iaculis lacus elementum feugiat. Integer rhoncus, nibh vel volutpat tincidunt, ante turpis gravida dolor, a accumsan est metus eget tortor. Sed in magna eget lorem vestibulum viverra vel ac metus. Donec egestas sodales enim at tincidunt. Proin sed porttitor neque. Mauris id finibus leo, a accumsan dolor.', 1506869150, 0),
+(33, 27, 1, 'Contrary to popular belief, Lorem Ipsum is not simply random text. ', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', 1507024530, 0);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `rights` int(11) NOT NULL,
-  UNIQUE KEY `user_id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `password_hash` varchar(255) NOT NULL,
+  `rights` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Дамп данных таблицы `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `rights`) VALUES
-(1, 'domioedition', 'domioedition@gmail.com', '', 15),
-(5, 'bob', 'bob@bob.com', '123123', 15),
-(9, 'mars', 'mars@mars.com', '12341234', 15),
-(17, 'Lua', 'lua@mycompany.com', '123123', 5),
-(16, 'Lua', 'lua@mycompany.com', '123123', 5);
-COMMIT;
+INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `rights`) VALUES
+(27, 'Garry', 'Garry@gmail.com', '$2y$12$.Vo0/U6zLbdh0a92rQuYjOrrSq6pB842y4F6qaqeLd3uAitYVZHH6', 15),
+(1, 'Mars', 'mars@mars.ua', '$2y$12$GA7WoL4cgkpsg24i7nUk0uN6vMpxiIPZvbh29J9wEw4W.T7RbtVy2', 15),
+(2, 'Bob', 'bob@ya.ru', '$2y$12$vzJpwx6QJs/5qXZMqvl3qOkih11vkNE8Bm6LLRmOT2LyuOUprGFWC', 15);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD UNIQUE KEY `user_id` (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
