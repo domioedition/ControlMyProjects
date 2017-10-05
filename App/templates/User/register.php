@@ -22,7 +22,6 @@ try {
     $user->email = $email;
     $user->password_hash = $passwordHash;
     $user->rights = 15;
-    $user->register();
 
 
     header('HTTP/1.1 302 Redirect');

@@ -11,7 +11,7 @@ include '../../autoload.php';
 $task = new \App\Models\Task();
 
 $task->user_id_creator = $_SESSION['user_id'];
-$task->user_id_assignee = 1;
+$task->user_id_assignee = 0;
 $task->task_name = $_POST['task_name'];
 $task->task_description = $_POST['task_description'];
 $task->task_date_creation = time();

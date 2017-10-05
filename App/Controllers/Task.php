@@ -7,16 +7,18 @@ use App\View;
 
 class Task extends Controller
 {
-    protected $task;
+//    protected $task;
+//    protected $x;
 
     public function __construct()
     {
-        parent::__construct();
+//        parent::__construct();
+        $this->view = new View();
     }
 
     public function action($action)
     {
-        $methodName = 'action' . $action;
+        $methodName = 'action'.$action;
 //        $this->beforeAction();
         return $this->$methodName();
     }
@@ -33,11 +35,21 @@ class Task extends Controller
         $this->view->display(__DIR__ . '/../templates/dashboard.php');
     }
 
+
+    protected function actionTask()
+    {
+        $task_id = (int)$_GET['task_id'];
+        $task = \App\Models\Task::find_by_id($task_id);
+        return $task;
+//        $this->view->tasks = \App\Models\Task::find_by_id($task_id);
+//        $this->view->display(__DIR__ . '/../templates/task.php');
+    }
+
     protected function actionOne()
     {
         $id = (int)$_GET['id'];
-        $this->view->article = \App\Models\Task::find_by_id($id);
-        $this->view->display(__DIR__ . '/../templates/one.php');
+        $this->view->task = \App\Models\Task::find_by_id($id);
+        $this->view->display(__DIR__ . '/../templates/task.php');
     }
 
     protected function actionAddForm()

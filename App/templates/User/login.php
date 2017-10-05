@@ -23,10 +23,11 @@ try {
     $password = filter_input(INPUT_POST, 'password');
 
     // TODO костыль, нужно испраить
-    if(!$email){
+    if(!$email || !$password){
         header("Location: /index.php");
 
     }
+
     $user = new \App\Controllers\ControllerUser();
     $foundUser = $user->findUserByEmail($email);
 
