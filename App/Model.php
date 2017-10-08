@@ -18,6 +18,8 @@ class Model
     {
         $db = Db::instance();
         $sql = "SELECT * FROM " . static::TABLE.' WHERE id=:id';
+        echo $sql;
+        echo "ID: ".$id;
         $result = $db->query($sql, [':id' => $id], static::class)[0];
         return $result;
     }

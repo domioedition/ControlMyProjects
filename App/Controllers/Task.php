@@ -39,8 +39,11 @@ class Task extends Controller
     protected function actionTask()
     {
         $task_id = (int)$_GET['task_id'];
-        $task = \App\Models\Task::find_by_id($task_id);
-        return $task;
+        $this->view->t = \App\Models\Task::find_by_id($task_id);
+        var_dump($this->view->t);
+$this->view->display(__DIR__ . '/../templates/task.php');
+        // var_dump($task);
+        // return $task;
 //        $this->view->tasks = \App\Models\Task::find_by_id($task_id);
 //        $this->view->display(__DIR__ . '/../templates/task.php');
     }

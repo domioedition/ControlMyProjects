@@ -2,7 +2,8 @@
 
 session_start();
 
-
+// Добавлять в отчет все PHP ошибки (см. список изменений)
+error_reporting(E_ALL);
 
 include '../../../autoload.php';
 
@@ -21,6 +22,11 @@ if (isset($_GET['logout']))
 try {
     $email = filter_input(INPUT_POST, 'email');
     $password = filter_input(INPUT_POST, 'password');
+
+$email = 'mars@mars.ua';
+$password = '123123';
+    var_dump($email);
+    var_dump($password);
 
     // TODO костыль, нужно испраить
     if(!$email || !$password){

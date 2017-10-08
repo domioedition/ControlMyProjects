@@ -86,5 +86,3 @@ require __DIR__ . '/autoload.php';
 $controller = new App\Controllers\Task();
 $action = (empty($_GET['action'])) ? 'Index' : $_GET['action'];
 $controller->action($action);
-
-
