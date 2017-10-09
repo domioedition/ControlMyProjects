@@ -13,8 +13,8 @@ class Db
     protected function __construct()
     {
         try {
-//            $this->dbh = new \PDO('mysql:host=localhost;dbname=id3140685_controlmyprojects', 'id3140685_controlmyprojects', 'Ihjdyv4JWKUd');
-            $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=controlmyprojects', 'root', 'piramida123');
+//            $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=controlmyprojects', 'root', 'piramida123');
+            $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=controlmyprojects', 'root', '');
         }catch (\Exception $e){
             echo $e->getMessage();
             print " Check DB. ";

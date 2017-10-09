@@ -24,12 +24,12 @@
 
 include_once 'header.php';
 
-
+//die(1);
 print_r(get_defined_vars());
+//var_dump($task);
 
-var_dump($task);
-
-
+$current_task = null;
+if($current_task == null) die("Current task = null");
 
 ?>
 
