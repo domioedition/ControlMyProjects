@@ -85,8 +85,11 @@ include_once 'header.php';
                                 } else {
                                     echo $task_creator = "Unknown";
                                 }
-                                echo "<tr><td><a href=\"index.php?action=task&task_id=$task_id\">View</a></td></tr>";
-                                echo "<tr onclick='window.location.href=\"/App/templates/task.php?action=task&task_id=$task_id\"'>
+
+                                echo ' <a href="index.php?action=one&id=' . $task->id.'">See more</a>';
+
+                                echo "<tr><td><a href=\"index.php?action=one&id=$task_id\">View</a></td></tr>";
+                                echo "<tr onclick='window.location.href=\"/App/templates/one_task_remake.php?action=task&task_id=$task_id\"'>
                                             <td>$task_id</td>
                                             <td>$task_status</td>
                                             <td>$task_name</td>

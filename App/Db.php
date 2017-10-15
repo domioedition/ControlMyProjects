@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Singleton;
 
 class Db
 {
@@ -13,8 +12,8 @@ class Db
     protected function __construct()
     {
         try {
-            $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=controlmyprojects', 'root', 'piramida123');
-//            $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=controlmyprojects', 'root', '');
+//            $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=controlmyprojects', 'root', 'piramida123');
+            $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=controlmyprojects', 'root', '');
         }catch (\Exception $e){
             echo $e->getMessage();
             print " Check DB. ";

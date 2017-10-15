@@ -93,6 +93,15 @@
                     <li>
                         <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
+                    <li>
+                        <a href="/news"><i class="fa fa-dashboard fa-fw"></i> News</a>
+                    </li>
+                    <li>
+                        <a href="/tasks"><i class="fa fa-dashboard fa-fw"></i> Tasks</a>
+                    </li>
+                    <li>
+                        <a href="test.php   "><i class="fa fa-dashboard fa-fw"></i> Test page</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->

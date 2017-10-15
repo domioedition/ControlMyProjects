@@ -5,15 +5,21 @@ namespace App\Controllers;
 
 
 use App\Controller;
+use App\View;
 
 class ControllerDashboard extends Controller
 {
+    protected $view;
 
-    public $dashboard;
+    public function __construct()
+    {
+        //Создали объект view
+        $this->view = new View();
+    }
 
     public function action($action)
     {
-        $methodName = 'action' . $action;
+        $methodName = $action;
         return $this->$methodName();
     }
 

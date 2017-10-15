@@ -1,14 +1,66 @@
 <?php
-session_start();
+//session_start();
 //session_destroy();
-if (!isset($_SESSION['user_logged_in'])) {
-    header("Location: App/templates/login.html");
-    exit;
-}
+//if (!isset($_SESSION['user_logged_in'])) {
+//    header("Location: App/templates/login.html");
+//    exit;
+//}
 
 require __DIR__ . '/autoload.php';
-//die("ERR");
 
+// 100% working code
+//$controller = new \App\Controllers\ControllerTask();
+//$action = (empty($_GET['action'])) ? 'Index' : $_GET['action'];
+//var_dump($action);
+//$controller->action($action);
+
+
+$params = null;
+
+$request = $_SERVER['REQUEST_URI'];
+$splits = explode('/', trim($request, '/'));
+//Какой сontroller использовать?
+$controller = !empty($splits[0]) ? 'Controller' . ucfirst($splits[0]) : 'ControllerDashboard';
+//Какой action использовать?
+$action = !empty($splits[1]) ? 'action' . ucfirst($splits[1]) : 'actionIndex';
+if (!empty($splits[2])) {
+    $params = $splits[2];
+}
+//
+//var_dump($params);
+//var_dump($controller);
+//var_dump($action);
+
+
+if ($controller == 'ControllerDashboard') {
+    echo $controller;
+    $ctrl = new \App\Controllers\ControllerDashboard();
+    $ctrl->action($action);
+} elseif ($controller == 'ControllerProject') {
+    echo $controller;
+} elseif ($controller == 'ControllerTasks') {
+    echo $controller;
+} elseif ($controller == 'ControllerUser') {
+    echo $controller;
+} elseif ($controller == 'ControllerNews') {
+    echo $controller;
+    $ctrl = new \App\Controllers\ControllerNews();
+
+    var_dump($action);
+    var_dump($params);
+
+    $ctrl->action($action);
+} elseif ($controller == 'ControllerNews') {
+    echo $controller;
+}
+
+
+//$action = (empty($_GET['action'])) ? 'Index' : $_GET['action'];
+//var_dump($action);
+
+
+echo "<hr>";
+die();
 // set up composer autoloader
 //require __DIR__ . '/vendor/autoload.php';
 
@@ -81,8 +133,33 @@ require __DIR__ . '/autoload.php';
 //    $controller->action($action);
 //}
 
+$url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'], '/')) : '/';
+var_dump($url);
+
+
+if (is_array($url)) {
+    $ctrl = $url[0];
+} else {
+    //todo сделать нормальный роутинг
+    $ctrl = null;
+}
+//var_dump($ctrl);
+switch ($ctrl) {
+    case 'news' :
+        $controller = new \App\Controllers\ControllerNews();
+        break;
+    case 'tasks' :
+        $controller = new \App\Controllers\ControllerTask();
+        break;
+    default :
+        $controller = new \App\Controllers\ControllerDashboard();
+        break;
+}
+
 
 // 100% working code
-$controller = new App\Controllers\Task();
+//$controller = new \App\Controllers\Task();
+//var_dump($controller);
 $action = (empty($_GET['action'])) ? 'Index' : $_GET['action'];
+//var_dump($action);
 $controller->action($action);

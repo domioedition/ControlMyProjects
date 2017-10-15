@@ -8,7 +8,7 @@ include '../../autoload.php';
 
 
 ////Add new task
-$task = new \App\Models\Task();
+$task = new \App\Models\ModelTask();
 
 $task->user_id_creator = $_SESSION['user_id'];
 $task->user_id_assignee = 0;

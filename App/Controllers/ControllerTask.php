@@ -2,16 +2,18 @@
 
 namespace App\Controllers;
 
-use App\Controller;
 use App\View;
 
-class Task extends Controller
+class ControllerTask
 {
-    protected $task;
+//    protected $task;
+    protected $view;
 
     public function __construct()
     {
-        parent::__construct();
+//        parent::__construct();
+        $this->view = new View();
+
     }
 
     public function action($action)
@@ -29,24 +31,24 @@ class Task extends Controller
 
     protected function actionIndex()
     {
-        $this->view->tasks = \App\Models\Task::find_all();
-        $this->view->display(__DIR__ . '/../templates/dashboard.php');
+        $this->view->tasks = \App\Models\ModelTask::findAll();
+        $this->view->display(__DIR__ . '/../templates/tasks.php');
     }
 
 
-    protected function actionTask()
-    {
-        $task_id = (int)$_GET['task_id'];
-        $this->view->tasks = \App\Models\Task::find_by_id($task_id);
-        $this->view->display(__DIR__ . '/../templates/task.php');
-    }
-
-//    protected function actionOne()
+//    protected function actionTask()
 //    {
-//        $id = (int)$_GET['id'];
-//        $this->view->task = \App\Models\Task::find_by_id($id);
+//        $task_id = (int)$_GET['task_id'];
+//        $this->view->tasks = \App\Models\Task::findById($task_id);
 //        $this->view->display(__DIR__ . '/../templates/task.php');
 //    }
+
+    protected function actionOne()
+    {
+        $id = (int)$_GET['id'];
+        $this->view->task = \App\Models\ModelTask::findById($id);
+        $this->view->display(__DIR__.'/../templates/one_task.php');
+    }
 
     protected function actionAddForm()
     {
@@ -56,7 +58,7 @@ class Task extends Controller
     protected function actionDelete()
     {
         $id = (int)$_GET['id'];
-        $task = new \App\Models\Task();
+        $task = new \App\Models\ModelTask();
         $result = $task->delete($id);
         if ($result) {
             $this->view->display(__DIR__ . '/../templates/success.php');

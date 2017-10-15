@@ -26,7 +26,7 @@ class ControllerProject extends Controller
     protected function actionIndex()
     {
 //        $this->view->projects = \App\Models\ModelProject::showAllProjects();
-        $this->view->tasks = \App\Models\Task::get_all_tasks_for_project_id($this->project_id);
+        $this->view->tasks = \App\Models\ModelTask::get_all_tasks_for_project_id($this->project_id);
         $this->view->display(__DIR__ . '/../templates/project.php');
     }
 

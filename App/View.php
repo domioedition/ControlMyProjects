@@ -7,20 +7,18 @@ class View
 {
 
     protected $data = [];
-
-    public function __set($name, $value)
+    public function __set($k, $v)
     {
-        if (!is_array($value)) {
-            return;
-        }
-        $this->data[$name] = $value;
+        $this->data[$k] = $v;
     }
-
-    public function __get($name)
+    public function __get($k)
     {
-        return $this->data[$name];
+        return $this->data[$k];
     }
-
+    public function display($template)
+    {
+        echo $this->render($template);
+    }
     public function render($template)
     {
         ob_start();
@@ -32,10 +30,4 @@ class View
         ob_end_clean();
         return $content;
     }
-
-    public function display($template)
-    {
-        echo $this->render($template);
-    }
-
 }

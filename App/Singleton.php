@@ -6,8 +6,6 @@ namespace App;
 
 trait Singleton
 {
-    public $counter;
-
     protected static $instance;
 
     protected function __construct()

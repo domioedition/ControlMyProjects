@@ -6,7 +6,7 @@ namespace App\Models;
 use App\Model;
 use App\Db;
 
-class Task extends Model
+class ModelTask extends Model
 {
     const TABLE = 'tasks';
 
