@@ -27,28 +27,39 @@ if (!empty($splits[2])) {
     $params = $splits[2];
 }
 //
-//var_dump($params);
-//var_dump($controller);
-//var_dump($action);
+// var_dump($params);
+// var_dump($controller);
+// var_dump($action);
 
 
 if ($controller == 'ControllerDashboard') {
-    echo $controller;
+    // echo $controller;
     $ctrl = new \App\Controllers\ControllerDashboard();
     $ctrl->action($action);
 } elseif ($controller == 'ControllerProject') {
     echo $controller;
-} elseif ($controller == 'ControllerTasks') {
-    echo $controller;
+} elseif ($controller == 'ControllerTask') {
+  // echo "<hr>";
+  //   echo $controller."<br>";
+  //   echo $action."<br>";
+  //   echo $params."<br>";
+    $ctrl = new \App\Controllers\ControllerTask($params);
+    $ctrl->action($action);
+
 } elseif ($controller == 'ControllerUser') {
-    echo $controller;
+  // echo "<hr>";
+  // echo $controller."<br>";
+  // echo $action."<br>";
+  // echo $params."<br>";
+    $ctrl = new \App\Controllers\ControllerUser();
+        $ctrl->action($action);
 } elseif ($controller == 'ControllerNews') {
-    echo $controller;
+    // echo $controller;
     $ctrl = new \App\Controllers\ControllerNews();
-
-    var_dump($action);
-    var_dump($params);
-
+    //
+    // var_dump($action);
+    // var_dump($params);
+    //
     $ctrl->action($action);
 } elseif ($controller == 'ControllerNews') {
     echo $controller;

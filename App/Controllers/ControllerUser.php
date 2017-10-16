@@ -13,7 +13,7 @@ class ControllerUser extends Controller
 
     public function __construct()
     {
-        parent::__construct();
+        // parent::__construct();
     }
 
     public function register(){
@@ -31,5 +31,19 @@ class ControllerUser extends Controller
         $userModel = new \App\Models\ModelUser();
         $this->user = $userModel->findByEmail($email);
         return $this->user;
+    }
+    public function action($action)
+    {
+        $methodName = $action;
+//        $this->beforeAction();
+        return $this->$methodName();
+    }
+    public function actionIndex(){
+
+      echo "some user information " . __FUNCTION__;
+    }
+    public function actionEdit(){
+
+      echo "Edit information about user. Function name  : " . __FUNCTION__;
     }
 }
