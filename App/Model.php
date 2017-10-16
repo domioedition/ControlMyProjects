@@ -3,11 +3,16 @@
 namespace App;
 
 
-abstract class Model
+class Model
 {
     const TABLE = '';
 
     public $id;
+
+    public function __construct()
+    {
+    //todo make constructor for one instance DB
+    }
 
     public function isNew(){
         return empty($this->id);
@@ -21,7 +26,8 @@ abstract class Model
     public static function findById($id)
     {
         $db = Db::instance();
-        return $db->query('SELECT * FROM '.static::TABLE . ' WHERE id=:id', [':id'=>$id], static::class)[0];
+        $result = $db->query('SELECT * FROM '.static::TABLE . ' WHERE id=:id', [':id'=>$id], static::class)[0];
+        return $result;
     }
 
     public function insert(){

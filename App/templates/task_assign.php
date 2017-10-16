@@ -16,5 +16,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $task->id = $_POST['task_id'];
     $task->setAssign($userIdAssignee);
     header('HTTP/1.1 302 Redirect');
-    header('Location: /index.php?id='.$taskId);
+    header('Location: /task/one/'.$taskId);
 }

@@ -13,7 +13,6 @@ class ControllerDashboard extends Controller
 
     public function __construct()
     {
-        //Создали объект view
         $this->view = new View();
     }
 
@@ -25,8 +24,7 @@ class ControllerDashboard extends Controller
 
     protected function actionIndex()
     {
-        $this->view->projects = \App\Models\ModelProject::showAllProjects();
-        $this->view->display(__DIR__ . '/../templates/dashboard_all_projects.php');
+        $this->view->display(__DIR__ . '/../templates/dashboard.php');
     }
 
 

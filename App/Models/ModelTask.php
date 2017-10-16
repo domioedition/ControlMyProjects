@@ -20,9 +20,9 @@ class ModelTask extends Model
     public function __get($k)
     {
         switch ($k) {
-            case 'user':
-                return ModelUser::find_by_id($this->user_id_creator);
-                break;
+//            case 'user':
+//                return ModelUser::find_by_id($this->user_id_creator);
+//                break;
             default:
                 return null;
         }

@@ -5,7 +5,6 @@
 //    header("Location: App/templates/login.html");
 //    exit;
 //}
-
 require __DIR__ . '/autoload.php';
 
 // 100% working code
@@ -33,41 +32,22 @@ if (!empty($splits[2])) {
 
 
 if ($controller == 'ControllerDashboard') {
-    // echo $controller;
     $ctrl = new \App\Controllers\ControllerDashboard();
-    $ctrl->action($action);
 } elseif ($controller == 'ControllerProject') {
-    echo $controller;
+    $ctrl = new \App\Controllers\ControllerProject();
 } elseif ($controller == 'ControllerTask') {
-  // echo "<hr>";
-  //   echo $controller."<br>";
-  //   echo $action."<br>";
-  //   echo $params."<br>";
     $ctrl = new \App\Controllers\ControllerTask($params);
-    $ctrl->action($action);
-
 } elseif ($controller == 'ControllerUser') {
-  // echo "<hr>";
-  // echo $controller."<br>";
-  // echo $action."<br>";
-  // echo $params."<br>";
     $ctrl = new \App\Controllers\ControllerUser();
-        $ctrl->action($action);
 } elseif ($controller == 'ControllerNews') {
-    // echo $controller;
-    $ctrl = new \App\Controllers\ControllerNews();
-    //
-    // var_dump($action);
-    // var_dump($params);
-    //
-    $ctrl->action($action);
+     $ctrl = new \App\Controllers\ControllerNews();
 } elseif ($controller == 'ControllerNews') {
     echo $controller;
+}else{
+    die("Unknown controller");
 }
-
-
-//$action = (empty($_GET['action'])) ? 'Index' : $_GET['action'];
-//var_dump($action);
+//echo $controller;
+$ctrl->action($action);
 
 
 echo "<hr>";

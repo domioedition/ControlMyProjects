@@ -9,12 +9,10 @@ use App\Model;
 class ModelProject extends Model
 {
 
+    const TABLE = 'projects';
 
-    public static function showAllProjects(){
 
 
-        return __CLASS__;
 
-    }
 
 }

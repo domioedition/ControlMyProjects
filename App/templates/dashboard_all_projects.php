@@ -1,31 +1,54 @@
 <?php
-
 include_once 'header.php';
-
 ?>
-<a href="../">Home</a>
-<?php
-
-echo "All my Projects";
-
-
-?>
-
-<br><br>
-<a href="#">Add new project</a><br>
-<a href="#">Delete project</a><br>
-<a href="#">Update project</a><br>
-<a href="#">Add users on project</a><br>
-<br><br>
-<br><br>
-
-
-<a href="../controlmyprojects/projects/1">1 project</a><br><br>
-<a href="../controlmyprojects/projects/2">2 project</a><br><br>
-<a href="../controlmyprojects/projects/3">3 project</a><br><br>
-<a href="../controlmyprojects/projects/4">4 project</a><br><br>
-<a href="../controlmyprojects/projects/5">5 project</a><br><br>
-
+    <h1 class="page-header">Projects</h1>
+    <div class="row">
+        <div class="col-lg-12">
+            <p><button type="button" class="btn btn-success">Add new project</button></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Projects
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Project Name</th>
+                                <th>Project Description</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            foreach ($projects as $project) {
+                                $projectId = $project->id;
+                                $projectName = $project->project_name;
+                                $projectDescription = $project->project_description;
+                                echo "<tr>
+                                        <td>$projectId</td>
+                                        <td>$projectName</td>
+                                        <td>$projectDescription</td>
+                                        <td><a href='#'>Edit</a></td>
+                                     </tr>";
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
 
 <?php
 include_once 'footer.php';

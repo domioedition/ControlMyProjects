@@ -16,25 +16,32 @@ class ModelComment extends Model
     public $content;
     public $date;
 
-    public function __get($k)
+    public function __construct()
     {
-        switch ($k) {
-            case 'user':
-                return ModelUser::find_by_id($this->user_id);
-                break;
-            default: return null;
-        }
+
     }
 
-    public function __isset($k)
-    {
-        switch ($k) {
-            case 'user':
-                return !empty($this->user_id_creator);
-                break;
-            default: return false;
-        }
+//    public function __get($k)
+//    {
+//        switch ($k) {
+//            case 'user':
+//                return ModelUser::find_by_id($this->user_id);
+//                break;
+//            default: return null;
+//        }
+//    }
+//
+//    public function __isset($k)
+//    {
+//        switch ($k) {
+//            case 'user':
+//                return !empty($this->user_id_creator);
+//                break;
+//            default: return false;
+//        }
+//    }
+
+    public static function getAllComments(){
+
     }
-
-
 }

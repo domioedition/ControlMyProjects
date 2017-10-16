@@ -34,25 +34,19 @@ class ControllerTask
 
     protected function actionIndex()
     {
-
         $this->view->tasks = \App\Models\ModelTask::findAll();
         $this->view->display(__DIR__ . '/../templates/tasks.php');
     }
-
-
-//    protected function actionTask()
-//    {
-//        $task_id = (int)$_GET['task_id'];
-//        $this->view->tasks = \App\Models\Task::findById($task_id);
-//        $this->view->display(__DIR__ . '/../templates/task.php');
-//    }
 
     protected function actionOne()
     {
       //$id = (int)$_GET['id'];
         $id = $this->params;
         $this->view->task = \App\Models\ModelTask::findById($id);
-        $this->view->display(__DIR__.'/../templates/one_task.php');
+        if($this->view->task === null){
+            die("err");
+        }
+        $this->view->display(__DIR__.'/../templates/task.php');
     }
 
     protected function actionAdd()

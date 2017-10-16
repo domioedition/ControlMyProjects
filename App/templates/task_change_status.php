@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $task->id = $taskId;
     $task->setTaskStatus($taskStatus);
     header('HTTP/1.1 302 Redirect');
-    header('Location: /index.php?id='.$taskId);
+    header('Location: /task/one/'.$taskId);
 }
 //
 //header('HTTP/1.1 302 Redirect');

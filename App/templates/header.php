@@ -12,25 +12,25 @@
     <title>Control My Projects</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="App/templates/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/../App/templates/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="App/templates/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="/../App/templates/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="App/templates/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/../App/templates/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="App/templates/vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="/../App/templates/vendor/morrisjs/morris.css" rel="stylesheet">
 
     <!-- DataTables CSS -->
-    <link href="App/templates/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="/../App/templates/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- DataTables Responsive CSS -->
-    <link href="App/templates/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+    <link href="/../App/templates/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="App/templates/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/../App/templates/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -94,10 +94,13 @@
                         <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
+                        <a href="/project"><i class="fa fa-dashboard fa-fw"></i> Projects</a>
+                    </li>
+                    <li>
                         <a href="/news"><i class="fa fa-dashboard fa-fw"></i> News</a>
                     </li>
                     <li>
-                        <a href="/task"><i class="fa fa-dashboard fa-fw"></i> Tasks</a>
+                        <a href="/task"><i class="fa fa-tasks fa-fw"></i> Tasks</a>
                     </li>
                     <li>
                         <a href="test.php   "><i class="fa fa-dashboard fa-fw"></i> Test page</a>
