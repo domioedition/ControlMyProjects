@@ -16,6 +16,9 @@ $taskDateCreation = $task->task_date_creation;
 
 include_once 'header.php';
 
+
+
+var_dump($x);
 ?>
 
 <div class="row">
@@ -124,8 +127,8 @@ include_once 'header.php';
                 // TODO chqnge project id from default
                 $projectId = 1;
                 $comments = new \App\Controllers\ControllerComment();
-                $comments->
-                $all_comments = $comments->findAll();
+                // $comments->
+                // $all_comments = $comments->findAll();
 //                $all_comments = $comments->showAllComments($projectId, $taskId);
                 if (empty($all_comments)) {
                     echo "0 comments";

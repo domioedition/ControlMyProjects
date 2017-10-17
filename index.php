@@ -6,7 +6,9 @@
 //    exit;
 //}
 require __DIR__ . '/autoload.php';
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // 100% working code
 //$controller = new \App\Controllers\ControllerTask();
 //$action = (empty($_GET['action'])) ? 'Index' : $_GET['action'];

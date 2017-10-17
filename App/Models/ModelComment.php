@@ -41,7 +41,11 @@ class ModelComment extends Model
 //        }
 //    }
 
-    public static function getAllComments(){
+    public static function findAll($projectId, $taskId){
+      $sql = "SELECT * FROM comments WHERE project_id='$projectId' AND task_id='$taskId'";
+      $temp = array("1"=>"test");
+      return $temp;
+      echo $sql;
 
     }
 }

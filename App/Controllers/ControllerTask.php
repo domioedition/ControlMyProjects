@@ -41,8 +41,14 @@ class ControllerTask
     protected function actionOne()
     {
       //$id = (int)$_GET['id'];
+
+
+      var_dump($projectId);
+      var_dump($taskId);
         $id = $this->params;
         $this->view->task = \App\Models\ModelTask::findById($id);
+        $this->view->x = \App\Models\ModelComment::findAll(1,1);
+        var_dump($x);
         if($this->view->task === null){
             die("err");
         }
