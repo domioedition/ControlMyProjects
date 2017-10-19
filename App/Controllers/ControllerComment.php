@@ -1,27 +1,11 @@
 <?php
 
-
 namespace App\Controllers;
 
-
-use App\Controller;
 use App\Models\ModelComment;
 
 class ControllerComment extends Controller
 {
-
-    protected $comments;
-    protected $view;
-
-    public function __construct()
-    {
-
-    }
-    public function action($action)
-    {
-        $methodName = $action;
-        return $this->$methodName();
-    }
 
     protected function actionIndex()
     {
@@ -46,8 +30,10 @@ class ControllerComment extends Controller
 
     protected static function showCountComments($pid, $tid)
     {
-        $this->comments = ModelComment::getCountComments();
-        return $this->comments;
+        //TODO Implements count coometns
+        echo "Here we show comments";
+//        $this->comments = ModelComment::getCountComments();
+//        return $this->comments;
     }
 	
 	
@@ -57,6 +43,5 @@ class ControllerComment extends Controller
         //var_dump($this->comments);
         return $this->comments;
     }
-
 
 }

@@ -1,15 +1,25 @@
 <?php
 
+namespace App\Controllers;
 
-namespace App;
 
-abstract class Controller
+use App\View;
+
+class Controller
 {
-//    protected $view;
-//    public function __construct()
-//    {
-//        $this->view = new View();
-//    }
+    protected $view = null;
+    public function __construct()
+    {
+        $this->view = new View();
+    }
+
+    public function action($action)
+    {
+        $methodName = $action;
+        return $this->$methodName();
+    }
+
+
 //
 //    protected function beforeAction()
 //    {

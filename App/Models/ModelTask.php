@@ -3,8 +3,6 @@
 
 namespace App\Models;
 
-use App\Model;
-use App\Db;
 
 class ModelTask extends Model
 {

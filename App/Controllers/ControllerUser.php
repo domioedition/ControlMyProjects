@@ -2,13 +2,8 @@
 
 namespace App\Controllers;
 
-
-use App\Controller;
-
-
 class ControllerUser extends Controller
 {
-
     protected $user;
 
     public function __construct()

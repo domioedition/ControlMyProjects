@@ -4,9 +4,6 @@
 namespace App\Models;
 
 
-use App\Model;
-use App\Db;
-
 class ModelUser extends Model
 {
     const TABLE = 'users';

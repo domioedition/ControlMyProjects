@@ -1,11 +1,7 @@
 <?php
 
-
 namespace App\Controllers;
 
-
-use App\Controller;
-use App\View;
 
 class ControllerProject extends Controller
 {
@@ -17,12 +13,6 @@ class ControllerProject extends Controller
     public function __construct()
     {
         //$this->project_id = $id;
-    }
-
-    public function action($action)
-    {
-        $methodName = $action;
-        return $this->$methodName();
     }
 
     protected function actionIndex()

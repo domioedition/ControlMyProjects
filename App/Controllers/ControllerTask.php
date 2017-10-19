@@ -2,34 +2,17 @@
 
 namespace App\Controllers;
 
-use App\View;
 
-class ControllerTask
+class ControllerTask extends Controller
 {
-//    protected $task;
-    protected $view;
+
+    protected $tasks;
     protected $params;
 
     public function __construct($params)
     {
-//        parent::__construct();
-        $this->view = new View();
+        parent::__construct();
         $this->params = $params;
-
-        // var_dump($this->params);
-    }
-
-    public function action($action)
-    {
-        $methodName = $action;
-//        $this->beforeAction();
-        return $this->$methodName();
-    }
-
-    //Proxy method
-    public function beforeAction()
-    {
-        echo 'Proxy method' . "<br>";
     }
 
     protected function actionIndex()
@@ -40,7 +23,6 @@ class ControllerTask
 
     protected function actionOne()
     {
-      //$id = (int)$_GET['id'];
         $id = $this->params;
         $this->view->task = \App\Models\ModelTask::findById($id);
         $this->view->comments = \App\Models\ModelComment::findAllComments(1,1);

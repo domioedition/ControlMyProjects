@@ -4,8 +4,6 @@
 namespace App\Models;
 
 
-use App\Model;
-
 class ModelComment extends Model
 {
     const TABLE = 'comments';
