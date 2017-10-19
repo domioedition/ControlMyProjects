@@ -94,16 +94,10 @@
                         <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="/project"><i class="fa fa-dashboard fa-fw"></i> Projects</a>
-                    </li>
-                    <li>
-                        <a href="/news"><i class="fa fa-dashboard fa-fw"></i> News</a>
+                        <a href="/project"><i class="fa fa-list-alt fa-fw"></i> Projects</a>
                     </li>
                     <li>
                         <a href="/task"><i class="fa fa-tasks fa-fw"></i> Tasks</a>
-                    </li>
-                    <li>
-                        <a href="test.php   "><i class="fa fa-dashboard fa-fw"></i> Test page</a>
                     </li>
                 </ul>
             </div>

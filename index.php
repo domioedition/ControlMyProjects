@@ -39,10 +39,10 @@ if ($controller == 'ControllerDashboard') {
     $ctrl = new \App\Controllers\ControllerProject();
 } elseif ($controller == 'ControllerTask') {
     $ctrl = new \App\Controllers\ControllerTask($params);
+} elseif ($controller == 'ControllerComment') {
+	$ctrl = new \App\Controllers\ControllerComment();
 } elseif ($controller == 'ControllerUser') {
     $ctrl = new \App\Controllers\ControllerUser();
-} elseif ($controller == 'ControllerNews') {
-     $ctrl = new \App\Controllers\ControllerNews();
 } elseif ($controller == 'ControllerNews') {
     echo $controller;
 }else{

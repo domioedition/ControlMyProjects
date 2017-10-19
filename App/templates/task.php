@@ -17,8 +17,8 @@ $taskDateCreation = $task->task_date_creation;
 include_once 'header.php';
 
 
-
-var_dump($x);
+//Здесь выводим переменную comments
+//var_dump($comments);
 ?>
 
 <div class="row">
@@ -45,7 +45,7 @@ var_dump($x);
                 echo '<p><small>Date creation: ' . date("d/m/Y H:i", $taskDateCreation) . '</small></p>';
                 echo '<p><small>Date update: ' . date("d/m/Y H:i", $taskDateCreation) . '</small></p>';
                 echo '<p>Task status: ' . $taskStatus . '</p>';
-                echo '<a href=index.php?action=delete&id=' . $taskId . '><button type="button" class="btn btn-danger" onclick="return confirm(\'Вы действительно хотите удалить эту запись?\');">Delete</button></a>';
+                echo '<a href=/task/delete/' . $taskId . '><button type="button" class="btn btn-danger" onclick="return confirm(\'Вы действительно хотите удалить эту запись?\');">Delete</button></a>';
                 ?>
             </div>
         </div>
@@ -144,12 +144,12 @@ var_dump($x);
                 ?>
             </div>
             <div class="panel-footer">
-                <form role="form" action="/App/templates/add_comment.php" method="post">
+                <form role="form" action="/comment/add" method="post">
                     <div class="form-group">
                         <label>Comment</label>
                         <textarea class="form-control" rows="3" name="comment"></textarea>
-                        <input type="text" name="project_id" value="<?php echo $project_id; ?>" hidden>
-                        <input type="text" name="task_id" value="<?php echo $task_id; ?>" hidden>
+                        <input type="text" name="project_id" value="<?php echo $projectId; ?>" hidden>
+                        <input type="text" name="task_id" value="<?php echo $taskId; ?>" hidden>
                     </div>
                     <button type="submit" class="btn btn-primary">Add comment</button>
                 </form>

@@ -9,7 +9,7 @@ include_once 'header.php';
     <div class="row">
         <div class="col-lg-12">
             <h1>Adding new task</h1>
-            <form action="App/templates/add.php" method="post">
+            <form action="/task/add" method="post">
                 <input type="text" name="task_name" placeholder="Task name"><br><br>
                 <textarea name="task_description" id="" cols="30" rows="10"
                           placeholder="Task description"></textarea><br>

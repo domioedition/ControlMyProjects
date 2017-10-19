@@ -5,28 +5,30 @@ namespace App\Controllers;
 
 
 use App\Controller;
+use App\View;
 
 class ControllerProject extends Controller
 {
 
     public $project_id;
     public $project;
+	protected $view;
 
-    public function __construct($id)
+    public function __construct()
     {
-        $this->project_id = $id;
+        //$this->project_id = $id;
     }
 
     public function action($action)
     {
-        $methodName = 'action' . $action;
+        $methodName = $action;
         return $this->$methodName();
     }
 
     protected function actionIndex()
     {
-        $this->view->tasks = \App\Models\ModelTask::get_all_tasks_for_project_id($this->project_id);
-        $this->view->display(__DIR__ . '/../templates/project.php');
+		echo "<h1>List of projects</h1>";
+		echo "<a href=\"/\">Up..</a>";
     }
 
 }
