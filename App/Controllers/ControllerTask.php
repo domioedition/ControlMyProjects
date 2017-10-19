@@ -60,11 +60,10 @@ class ControllerTask extends Controller
 				$task = new \App\Models\ModelTask();
 				$taskId = (int)$splits[2];
 				//TODO Create and finish this delete method. Delete must call from 'Model' class.
-				$task->delete($taskId);
 				$result = $task->delete($taskId);
 				
-				echo "The task should be deleted from the database, but it does not work yet";
-				
+
+
 				if ($result) {
 					$this->view->display(__DIR__ . '/../templates/success.php');
 				}	
