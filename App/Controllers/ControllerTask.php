@@ -58,15 +58,11 @@ class ControllerTask extends Controller
 		$splits = explode('/', trim($request, '/'));
 			if($splits[0] === "task" && $splits[1] === "delete"){
 				$task = new \App\Models\ModelTask();
-				$taskId = (int)$splits[2];
-				//TODO Create and finish this delete method. Delete must call from 'Model' class.
-				$result = $task->delete($taskId);
-				
-
-
-				if ($result) {
-					$this->view->display(__DIR__ . '/../templates/success.php');
-				}	
+                $task->id = (int)$splits[2];
+                $result = $task->delete($task->id);
+                if ($result) {
+                    header('Location: /task');
+				}
 		}
 	}
 

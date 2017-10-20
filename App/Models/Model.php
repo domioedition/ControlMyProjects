@@ -53,20 +53,8 @@ class Model
     {
         $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id='.$id.'';
         $db = Db::instance();
-        $result = $db->execute($sql);
+        $result = $db->execute($sql,[]);
         return $result;
-    }
-
-
-    public static function get_all_comments($pid, $tid)
-    {
-////     die("error");
-//        $db = Db::instance();
-//        $sql = "SELECT * FROM " . static::TABLE . " WHERE project_id = $pid AND task_id= $tid";
-////        $sql = "SELECT * FROM comments where project_id=1 and task_id=25";
-////        echo $sql;
-//        $result = $db->query($sql, [], static::class);
-//        return $result;
     }
 
 }
