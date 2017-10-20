@@ -4,6 +4,8 @@
 namespace App\Models;
 
 
+use App\Db;
+
 class ModelComment extends Model
 {
     const TABLE = 'comments';
@@ -39,16 +41,18 @@ class ModelComment extends Model
 //        }
 //    }
 
-    public static function findAllComments($projectId, $taskId){
-      $sql = "SELECT * FROM comments WHERE project_id='$projectId' AND task_id='$taskId'";
-      //TODO create getting all comments for project
-	  $temp = array("1"=>"test");
-      return $temp;
+    public static function findAllComments($projectId, $taskId)
+    {
+        $sql = "SELECT * FROM comments WHERE project_id='$projectId' AND task_id='$taskId'";
+        $db = Db::instance();
+        $result = $db->query('SELECT * FROM ' . static::TABLE . ' WHERE project_id=:project_id AND task_id=:task_id', [':project_id' => $projectId, ':task_id' => $taskId], static::class);
+        return $result;
     }
-	
-	public static function getCountComments($projectId, $taskId){
-		$sql = "SELECT COUNT(*) FROM comments WHERE project_id='$projectId' AND task_id='$taskId'";
-		
-	}
+
+    public static function getCountComments($projectId, $taskId)
+    {
+        $sql = "SELECT COUNT(*) FROM comments WHERE project_id='$projectId' AND task_id='$taskId'";
+
+    }
 
 }

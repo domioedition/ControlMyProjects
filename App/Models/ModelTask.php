@@ -15,6 +15,19 @@ class ModelTask extends Model
     public $task_date_creation;
     public $task_status;
 
+
+//    public function __construct($userIdCreator, $userIdAssignee = 0, $taskName, $taskDescription, $taskStatus = 0)
+//    {
+//        parent::__construct();
+//        $this->user_id_creator = $userIdCreator;
+//        $this->user_id_assignee = $userIdAssignee;
+//        $this->task_name = $taskName;
+//        $this->task_description = $taskDescription;
+//        $this->task_date_creation = time();
+//        $this->task_status = $taskStatus;
+//
+//    }
+
     public function __get($k)
     {
         switch ($k) {
@@ -37,15 +50,6 @@ class ModelTask extends Model
         }
     }
 
-
-//    public static function get_all_tasks_for_project_id($id)
-//    {
-//        $db = Db::instance();
-//        $sql = "SELECT * FROM " . static::TABLE.' WHERE id=:id';
-//        $result = $db->query($sql, [':id' => $id], static::class)[0];
-//        return $result;
-//    }
-
     public function getTaskStatus()
     {
         return $this->task_status;
@@ -60,11 +64,13 @@ class ModelTask extends Model
     }
 
 
-    public function getAssign(){
+    public function getAssign()
+    {
         return $this->user_id_assignee;
     }
 
-    public function setAssign($userAssignee){
+    public function setAssign($userAssignee)
+    {
         $db = Db::instance();
         $sql = 'UPDATE ' . static::TABLE . ' SET user_id_assignee=' . $userAssignee . ' WHERE id=' . $this->id;
         $result = $db->execute($sql, []);

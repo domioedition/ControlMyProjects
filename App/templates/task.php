@@ -16,9 +16,6 @@ $taskDateCreation = $task->task_date_creation;
 
 include_once 'header.php';
 
-
-//Здесь выводим переменную comments
-//var_dump($comments);
 ?>
 
 <div class="row">
@@ -124,18 +121,13 @@ include_once 'header.php';
                 <?php
 
 
-                // TODO chqnge project id from default
-                $projectId = 1;
-                $comments = new \App\Controllers\ControllerComment();
-                // $comments->
-                // $all_comments = $comments->findAll();
-//                $all_comments = $comments->showAllComments($projectId, $taskId);
-                if (empty($all_comments)) {
+                if (empty($comments)) {
                     echo "0 comments";
                 } else {
-                    foreach ($all_comments as $comment) {
+                    foreach ($comments as $comment) {
                         $date = date('d-m-Y H:i', $comment->date);
-                        echo '<p class="text-info"><code>' . $comment->user->name . '</code> added a comment - ' . $date . '</p>';
+                        echo '<p class="text-info"><code>User ID: ' . $comment->user_id . '</code> added a comment - ' . $date . '</p>';
+//                        echo '<p class="text-info"><code>' . $comment->user->name . '</code> added a comment - ' . $date . '</p>';
                         echo '<p>' . nl2br($comment->content) . '</p>';
                         echo '<p class="text-right"><a href="#">Update</a> | <a href="#">Delete</a></p>';
                         echo '<hr>';

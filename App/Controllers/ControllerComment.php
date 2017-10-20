@@ -16,8 +16,8 @@ class ControllerComment extends Controller
 	protected function actionAdd()
     {
 		$comment = new \App\Models\ModelComment();
-		
-		$comment->project_id = $_POST['project_id'];
+		//TODO change project ID
+		$comment->project_id = 1;
 		$comment->task_id = $_POST['task_id'];
 		//TODO change user, tajke it from session
 		$comment->user_id = 1;
@@ -35,13 +35,15 @@ class ControllerComment extends Controller
 //        $this->comments = ModelComment::getCountComments();
 //        return $this->comments;
     }
-	
-	
-    protected function showAllComments($pid, $tid)
+
+
+    public static function showAllComments($pid, $tid)
     {
-        $this->comments = ModelComment::findAll();
-        //var_dump($this->comments);
-        return $this->comments;
+        $comments = \App\Models\ModelComment::findAllComments($pid,$tid);
+        return $comments;
+//        var_dump($comments);
+//        $this->comments = ModelComment::findAllComments($pid, $tid);
+//        return $this->comments;
     }
 
 }

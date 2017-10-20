@@ -23,19 +23,26 @@ class ControllerTask extends Controller
 
     protected function actionOne()
     {
-        $id = $this->params;
-        $this->view->task = \App\Models\ModelTask::findById($id);
-        $this->view->comments = \App\Models\ModelComment::findAllComments(1,1);
+        $taskId = $this->params;
 
-        if($this->view->task === null){
-            die("err");
+        try{
+            $this->view->task = \App\Models\ModelTask::findById($taskId);
+            $this->view->comments = \App\Controllers\ControllerComment::showAllComments(1,$taskId);
+            if($this->view->task === null){
+                throw new \Exception("Task not found");
+            }
+            $this->view->display(__DIR__.'/../templates/task.php');
+
+        }catch (\Exception $e){
+            header('HTTP/1.1 400 Bad request');
+            header('Location: /App/templates/error.php');
+            echo $e->getMessage();
         }
-        $this->view->display(__DIR__.'/../templates/task.php');
+
     }
 
     protected function actionAdd()
     {
-        //print_r($_POST);
 		if(empty($_POST)){
 			$this->view->display(__DIR__ . '/../templates/task_add_form.php');			
 		}else{
